@@ -3,18 +3,14 @@ import { Nav } from '../components/Nav'
 import { InferGetStaticPropsType } from 'next';
 import { query } from '.keystone/api';
 import { Attachment } from '../lib/types';
-import { Hero } from '../components/Hero';
 import { PAGES_QUERY, PAGE_QUERY } from '../lib/utils';
+import { Body } from '../components/Body';
 
 
-const Home = ({attachments, page, links}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const logo = attachments?.find((a: Attachment) => a.key === 'logo')
-  
+const Home = ({logo, page, links}: InferGetStaticPropsType<typeof getStaticProps>) => {  
+  const document = page?.content?.document || []
   return <>
-    <Hero {...{}} />
-    <pre>
-      {JSON.stringify({page, links}, null, 2)}
-    </pre>
+    <Body {...{document}} />
   </>
 }
 
@@ -22,7 +18,10 @@ export default Home
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const attachments = await query.Attachment.findMany({ query: 'key title image { url height width } altText' }) as Attachment[];
+  const logo = await query.Attachment.findOne({ 
+    where: {key: 'logo'},
+    query: 'key title image { url height width } altText' 
+  }) as Attachment[];
   const page = await query.Page.findOne({
     where: {slug: 'home'}, 
     query: PAGE_QUERY
@@ -32,6 +31,6 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 
   return {
-    props: { attachments, page, links }
+    props: { logo, page, links }
   };
 }

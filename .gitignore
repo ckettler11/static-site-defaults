@@ -36,3 +36,7 @@ yarn-error.log*
 
 # keystone
 .keystone
+
+# remove when starting new project
+app.db
+public/images/*
