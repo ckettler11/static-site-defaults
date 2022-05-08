@@ -1,15 +1,16 @@
 import type { GetStaticProps } from 'next'
-import { Nav } from '../components/Nav'
 import { InferGetStaticPropsType } from 'next';
 import { query } from '.keystone/api';
 import { Attachment } from '../lib/types';
 import { PAGES_QUERY, PAGE_QUERY } from '../lib/utils';
 import { Body } from '../components/Body';
+import Head from 'next/head';
 
 
 const Home = ({logo, page, links}: InferGetStaticPropsType<typeof getStaticProps>) => {  
   const document = page?.content?.document || []
   return <>
+    <Head><title>{page.title}</title></Head>
     <Body {...{document}} />
   </>
 }

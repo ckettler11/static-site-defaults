@@ -3,10 +3,10 @@ import { componentBlockRenderers } from "./blocks/renderers"
 
 
 export const Body = ({document}) => {
-  return <div className=''>  
+  return !!document ? <div className=''>  
     <DocumentRenderer 
       {...{document}} 
       componentBlocks={componentBlockRenderers}
     />
-  </div>
+  </div> : <></>
 }

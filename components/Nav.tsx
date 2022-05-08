@@ -15,7 +15,7 @@ export const Nav = ({logo, links}: {logo: Attachment, links: Pages}) => {
     return () => window.removeEventListener('resize', resize)
   }, [])
 
-  return <nav className='sticky top-0 border-b px-8 bg-white/75 backdrop-blur-sm'>
+  return <nav className='sticky top-0 px-8 h-12 md:h-14 bg-white/75 backdrop-blur-sm'>
     <div className='flex h-full items-center gap-4 justify-center'>
       <div className='w-72 order-2'>
         <Link href={'/'}>
@@ -64,7 +64,7 @@ export const Nav = ({logo, links}: {logo: Attachment, links: Pages}) => {
           </li>
         ))}
       </ul>
-      
+
     </div>
   </nav>
 }

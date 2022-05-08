@@ -8,6 +8,8 @@ import { Body } from "../components/Body";
 const Page: NextPage = (props: any) => {
   const { page } = props
   const document = page?.content?.document
+
+  if(!page) return <>Error 404</>
   return <>
     <Body {...{document}} />
   </>
@@ -42,7 +44,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   })
 
   return {
-    paths: pages?.map(p => ({params: {pageSlug: p.slug}})),
-    fallback: 'blocking'
+    paths: pages?.map(p => ({params: { pageSlug: p.slug }})),
+    fallback: true
   }
 }
