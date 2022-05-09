@@ -6,6 +6,11 @@ export type Attachment = {
     height: number;
     width: number;
   };
+  darkImage?: {
+    url: string;
+    height: number;
+    width: number;
+  };
   altText: string;
 };
 

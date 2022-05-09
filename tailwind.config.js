@@ -7,4 +7,8 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  darkMode: 'class',
+  safeList: [
+    'bg-slate-800'
+  ]
 }

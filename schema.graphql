@@ -7,6 +7,7 @@ type Attachment {
   title: String
   altText: String
   image: ImageFieldOutput
+  darkImage: ImageFieldOutput
 }
 
 interface ImageFieldOutput {
@@ -117,6 +118,7 @@ input AttachmentUpdateInput {
   title: String
   altText: String
   image: ImageFieldInput
+  darkImage: ImageFieldInput
 }
 
 input ImageFieldInput {
@@ -139,6 +141,7 @@ input AttachmentCreateInput {
   title: String
   altText: String
   image: ImageFieldInput
+  darkImage: ImageFieldInput
 }
 
 type Page {

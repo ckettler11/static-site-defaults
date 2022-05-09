@@ -14,7 +14,7 @@ const nextConfig = withKeystone({
     return config
   },
   images: {
-    domains: ['bulma.io'],
+    loader: 'custom'
   },
 });
 

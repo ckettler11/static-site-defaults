@@ -1,3 +1,93 @@
 @tailwind base;
+
+@layer base {
+  * {
+    @apply border-slate-300 dark:border-slate-600;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply leading-normal;
+  }
+  h1 {
+    @apply text-6xl font-bold leading-normal;
+  }
+  h2 {
+    @apply text-5xl font-semibold tracking-wide leading-normal;
+  }
+  h3 {
+    @apply text-4xl leading-normal;
+  }
+  h4 {
+    @apply text-3xl leading-normal;
+  }
+  h5 {
+    @apply text-2xl leading-normal;
+  }
+  h6 {
+    @apply text-xl leading-normal;
+  }
+}
+
 @tailwind components;
+
+@layer components {
+  #site-nav {
+    @apply border-b;
+  }
+  #site-nav > * {
+    @apply h-full;
+  }
+  #site-nav li, #site-nav ul {
+    @apply h-full;
+  }
+  #site-nav ul {
+    @apply -mx-3;
+  }
+  #site-nav li > a {
+    @apply h-full px-3 flex items-center;
+  }
+  #site-nav .nav-left li:not(:last-child) a {
+    @apply border-r;
+  }
+  #site-nav .nav-right li:not(:first-child) a {
+    @apply border-l;
+  }
+  #site-nav li > a:hover {
+    @apply bg-slate-100/50 dark:bg-slate-700/50;
+  }
+}
+
 @tailwind utilities;
+
+:root {
+  --nav_height: 48px;
+  --nav_height_lg: 56px;
+}
+
+.nav-space {
+  @apply -mt-12 md:-mt-14 pt-12 md:pt-14;
+}
+
+* {
+  @apply text-slate-800 dark:text-slate-50;
+}
+
+pre {
+  @apply dark:bg-slate-800 max-w-full overflow-auto;
+}
+
+.scheme-colors {
+  @apply text-slate-800 bg-slate-50 dark:text-slate-50 dark:bg-slate-800;
+}
+
+html.dark {
+  @apply bg-slate-800;
+}
+
+.min-h-screen-less-nav {
+  min-height: calc(100vh - var(--nav_height));
+}
+@media screen and (min-width: 768px) {
+  .min-h-screen-less-nav {
+    min-height: calc(100vh - var(--nav_height_lg));
+  }
+}
